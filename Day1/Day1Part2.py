@@ -1,4 +1,7 @@
-# https://adventofcode.com/2024/day/1
+# Must input a correct answer for part 1 before part 2 can be viewed
+# https://adventofcode.com/2024/day/1#part2
+
+from collections import Counter
 
 def solve(fileName):
     lines = open(fileName,"r").read().strip().split()   # Read input data, split on whitespace since there are 2 numbers per line
@@ -11,16 +14,16 @@ def solve(fileName):
             list1.append(num)
         else:
             list2.append(num)
-    return findDifference(list1,list2)
 
-# Takes two numeric, positive lists and finds the sum of the differences between each element once sorted by magnitude
-def findDifference(list1,list2):
-    list1.sort()
-    list2.sort()
+    # Create a frequency table for integers in the 2nd list to prevent the need to search the entire list repeatedly
+    freq = Counter(list2)
+    return calculateSimilarityScore(list1,freq)
 
-    sum = 0
-    for n, num in enumerate(list1):
-        sum += abs(num-list2[n])
+# Inputs one list and a frequency table of the other to calculate requested score
+def calculateSimilarityScore(list,freq):
+    sum = 0 # Final answer variable
+    for num in list:
+        sum += num * freq[num]
     
     return sum
 

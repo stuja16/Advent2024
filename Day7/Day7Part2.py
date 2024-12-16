@@ -1,6 +1,11 @@
 # Must input a correct answer for part 1 before part 2 can be viewed
 # https://adventofcode.com/2024/day/7#part2
 
+# Also unoptimized, but it shouldn't take more than 15 seconds
+# Could optimize it more by checking from the end of the equation to see if the last factor would work if concatenated
+# or if it is a multiple of the result, but I'm not sure how much that would speed it up relative to the work
+# required to implement.
+
 import re
 
 def solve(fileName):
@@ -20,7 +25,7 @@ def processLine(line):
 
     return 0
 
-# Returns boolean: True if r can be produced by inserting + and * operators
+# Returns boolean: True if r can be produced by inserting +, *, and || operators
 def canBeProduced(r,factors):
     l = len(factors) - 1    # One less operator than factors
     operator_list = [0] * l

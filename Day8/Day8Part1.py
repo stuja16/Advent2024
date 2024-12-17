@@ -1,7 +1,5 @@
 # https://adventofcode.com/2024/day/8
 
-import re
-
 def solve(fileName):
     antennas = {}
     antinodes = set()

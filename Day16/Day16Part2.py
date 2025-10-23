@@ -1,5 +1,5 @@
 # Must input a correct answer for part 1 before part 2 can be viewed
-# https://adventofcode.com/2024/day/15#part2
+# https://adventofcode.com/2024/day/16#part2
 # Solved with Djikstra's algorithm
 
 from heapq import heappop, heappush
